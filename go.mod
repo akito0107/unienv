@@ -1,4 +1,4 @@
-module github.com/akito0107/monoenv
+module github.com/akito0107/unienv
 
 require (
 	github.com/jtolds/gls v4.2.1+incompatible // indirect

@@ -1,8 +1,8 @@
-package monoenv_test
+package unienv_test
 
 import (
 	"bytes"
-	"github.com/akito0107/monoenv"
+	"github.com/akito0107/unienv"
 	"reflect"
 	"testing"
 )
@@ -11,7 +11,7 @@ func TestParse(t *testing.T) {
 	for _, testcase := range []struct {
 		name string
 		in   string
-		out  monoenv.ConfigMap
+		out  unienv.ConfigMap
 	}{
 		{
 			name: "simple case",
@@ -50,7 +50,7 @@ ENV2=s2
 
 			buf := bytes.NewBufferString(testcase.in)
 
-			act, err := monoenv.Parse(buf)
+			act, err := unienv.Parse(buf)
 
 			if err != nil {
 				t.Error(err)
