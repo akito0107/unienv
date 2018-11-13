@@ -4,7 +4,6 @@ import (
 	"gopkg.in/ini.v1"
 	"io"
 	"io/ioutil"
-	"log"
 )
 
 //go:generate generr -t noDefaultSection -i
@@ -36,8 +35,11 @@ func Parse(r io.Reader) (ConfigMap, error) {
 	}
 
 	m := NewConfigMap()
+
 	for _, s := range cfg.Sections() {
-		log.Println(s.Name())
+		if s.Name() == "DEFAULT" {
+			continue
+		}
 		m[s.Name()] = s.KeysHash()
 	}
 
