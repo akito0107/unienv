@@ -24,6 +24,27 @@ ENV1=test
 				},
 			},
 		},
+		{
+			name: "multi section",
+			in: `[default]
+ENV1=test1
+ENV2=test2
+
+[othersection]
+ENV1=s1
+ENV2=s2
+`,
+			out: map[string]map[string]string{
+				"default": {
+					"ENV1": "test1",
+					"ENV2": "test2",
+				},
+				"othersection": {
+					"ENV1": "s1",
+					"ENV2": "s2",
+				},
+			},
+		},
 	} {
 		t.Run(testcase.name, func(t *testing.T) {
 
