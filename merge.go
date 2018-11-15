@@ -1,6 +1,6 @@
 package unienv
 
-//go:generate generr -t noEnvName -i
+//go:generate bin/generr -t noEnvName -i
 type noEnvName interface {
 	NoEnvName() (envname string)
 }

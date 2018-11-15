@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 )
 
-//go:generate generr -t noDefaultSection -i
+//go:generate bin/generr -t noDefaultSection -i
 type noDefaultSection interface {
 	NoDefaultSection()
 }
